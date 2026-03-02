@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-Kantin Sekolah</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <section id="auth-section">
+        <div class="container">
+            <h2 id="auth-title">Login Kantin</h2>
+            <form id="auth-form">
+                <input type="text" id="username" placeholder="Username" required>
+                <input type="password" id="password" placeholder="Password" required>
+                <select id="role">
+                    <option value="pemesan">Pemesan (Siswa)</option>
+                    <option value="admin">Admin Kantin</option>
+                </select>
+                <button type="submit" id="btn-auth">Login</button>
+            </form>
+            <p id="toggle-auth">Belum punya akun? Daftar di sini.</p>
+        </div>
+    </section>
+
+    <section id="user-dashboard" class="hidden">
+        <header>
+            <h1>Menu Kantin</h1>
+            <button onclick="logout()">Logout</button>
+        </header>
+        <div class="menu-container" id="menu-list">
+            </div>
+        <hr>
+        <h2>Pesanan Saya</h2>
+        <div class="order-container" id="user-orders">
+            </div>
+    </section>
+
+    <section id="admin-dashboard" class="hidden">
+        <header>
+            <h1>Panel Admin Kantin</h1>
+            <button onclick="logout()">Logout</button>
+        </header>
+        
+        <div class="admin-grid">
+            <div class="add-menu">
+                <h3>Tambah Menu</h3>
+                <form id="add-menu-form">
+                    <input type="text" id="menu-name" placeholder="Nama Makanan" required>
+                    <input type="number" id="menu-price" placeholder="Harga" required>
+                    <input type="text" id="menu-img" placeholder="URL Gambar (Contoh: https://...)" required>
+                    <button type="submit">Tambah Menu</button>
+                </form>
+            </div>
+
+            <div class="manage-orders">
+                <h3>Kelola Pesanan Masuk</h3>
+                <table border="1">
+                    <thead>
+                        <tr>
+                            <th>Pemesan</th>
+                            <th>Menu</th>
+                            <th>Status</th>
+                            <th>Aksi</th>
+                        </tr>
+                    </thead>
+                    <tbody id="admin-order-list"></tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <script src="script.js"></script>
+</body>
+</html>
